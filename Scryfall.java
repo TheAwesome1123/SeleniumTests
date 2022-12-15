@@ -1,4 +1,6 @@
+import org.checkerframework.checker.units.qual.s;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -19,6 +21,7 @@ public class Scryfall {
         enterRulesText();
         selectColors();
         startSearch();
+        testSimpleSearch();
     }
 
     public void goToHomePage() {
@@ -54,6 +57,15 @@ public class Scryfall {
     public void startSearch () {
         WebElement searchButton = webDriver.findElement(By.xpath("//*[@id=\"main\"]/form/div/div[18]/button"));
         searchButton.click();
+        waitInSecs(1);
+    }
+
+    public void testSimpleSearch() {    
+        WebElement searchEngine = webDriver.findElement(By.className("header-search-field"));
+        searchEngine.clear();
+        searchEngine.sendKeys("Emmara");
+        searchEngine.sendKeys(Keys.RETURN);
+        waitInSecs(1);
     }
 
     public void waitInSecs(int seconds)
