@@ -14,7 +14,7 @@ public class Italeri {
         goToHomePage();
         testModelSelection();
         testSelectingProduct();
-        testSearch();
+        //testSearch();
     }
 
     public void goToHomePage() {
@@ -39,7 +39,6 @@ public class Italeri {
         waitInSecs(1);
     }
 
-
     public void testSelectingProduct() {
         WebElement spitfire = 
         this.webDriver.findElement(By.xpath("//*[@id=\"catalogo\"]/div/div[6]/div/div/div[1]/a"));
@@ -54,10 +53,11 @@ public class Italeri {
 
     public void testSearch() {
         WebElement searchEngine = 
-        this.webDriver.findElement(By.xpath("//*[@id=\"wrapper\"]/nav/div/ul/li[1]"));
+        this.webDriver.findElement(By.xpath("//*[@id=\"wrapper\"]/nav/div/ul/li[1]/button"));
 
         searchEngine.click();
     }
+
     public void waitInSecs(int seconds)
     {
         try
